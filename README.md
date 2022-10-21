@@ -1,1 +1,1 @@
-# CinemA_PIcker
+# CinemAPIcker
