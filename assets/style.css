@@ -1,0 +1,131 @@
+/* 
+Color Pallete
+prim: #E6DEDD
+second: #8f1d14
+tert: #1b120f
+quart: #f89d13
+*/
+
+/* Fonts
+font-family: 'DM Sans', sans-serif;
+font-family: 'Quicksand', sans-serif;
+*/
+
+:root {
+    --prim: #E6DEDD;
+    --second: #8f1d14; 
+    --tert: #1b120f;
+    --quart: #f89d13;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: var(--tert);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    font-size: 16px;
+    color: var(--prim);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.backlight {
+    box-shadow: 0 0 8px 1px var(--quart);
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+header {
+    position: relative;
+    /* margin-top: 1em; */
+ 
+    color: var(--quart);
+    font-family: 'Oswald', sans-serif;
+    width: 95%;
+    margin: 1em auto;
+    padding: .5em;;
+    text-align: center;
+}
+
+h1 {
+}
+
+#main-container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin: 2em 1em;
+}
+
+#search-container {
+    width: 40%;
+    max-height: 160px;
+    padding: 1em .5em;
+}
+
+#search-container input,
+#search-container select {
+    width: 98%;
+    padding: .5em;
+    margin-bottom: .5em;
+    background-color: var(--prim);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 100%;
+}
+
+#search-container button {
+    width: 98%;
+    padding: .25em;
+    background-color: var(--second);
+    color: var(--prim);
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 120%;
+}
+
+#movie-container {
+    width: 58%;
+}
+
+#movie-container ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.movie-card {
+    display: flex;
+    padding: .5em;
+    background-color: var(--prim);
+    color: #1b120f;
+    margin-bottom: .5em;
+}
+
+.move-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 .5em;
+}
+
+.move-desc h3,
+.move-desc p {
+    margin-bottom: .5em;
+}
+
+.move-desc button {
+    width: 100%;
+    border: none;
+    background-color: var(--second);
+    color: var(--prim);
+    padding: .25em;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 100%;
+}
