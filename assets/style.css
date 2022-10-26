@@ -13,7 +13,7 @@ font-family: 'Quicksand', sans-serif;
 
 :root {
     --prim: #E6DEDD;
-    --second: #8f1d14; 
+    --second: #8f1d14;
     --tert: #1b120f;
     --quart: #f89d13;
 }
@@ -22,52 +22,54 @@ font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
+
+button {
+    border: none;
+}
 
 body {
-    background-color: var(--tert);
     position: relative;
-    width: 100%;
-    height: 100vh;
-    font-size: 16px;
+    background-color: var(--tert);
     color: var(--prim);
+    width: 100%;
+    font-size: 16px;
     font-family: 'DM Sans', sans-serif;
 }
 
 .backlight {
-    box-shadow: 0 0 8px 1px var(--quart);
+    box-shadow: 0 0 8px 2px var(--quart);
 }
 
 .rounded {
     border-radius: 5px;
 }
 
+/* Header */
 header {
     position: relative;
-    /* margin-top: 1em; */
- 
     color: var(--quart);
     font-family: 'Oswald', sans-serif;
-    width: 95%;
+    width: 98%;
     margin: 1em auto;
-    padding: .5em;;
+    padding: .5em;
     text-align: center;
 }
 
-h1 {
-}
-
+/* Main Container */
 #main-container {
     display: flex;
+    flex-direction: column;
     position: relative;
-    justify-content: space-between;
     margin: 2em 1em;
 }
 
+/* Search Bar */
 #search-container {
-    width: 40%;
+    width: 100%;
     max-height: 160px;
     padding: 1em .5em;
+    margin-bottom: 1.5em;
 }
 
 #search-container input,
@@ -85,14 +87,14 @@ h1 {
     padding: .25em;
     background-color: var(--second);
     color: var(--prim);
-    border: none;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
     font-size: 120%;
 }
 
+/* Movie List */
 #movie-container {
-    width: 58%;
+    width: 100%;
 }
 
 #movie-container ul {
@@ -102,10 +104,16 @@ h1 {
 
 .movie-card {
     display: flex;
+    flex-direction: column;
     padding: .5em;
     background-color: var(--prim);
     color: #1b120f;
     margin-bottom: .5em;
+}
+
+.movie-card img {
+    width: 80%;
+    margin: 0 auto;
 }
 
 .move-desc {
@@ -122,10 +130,55 @@ h1 {
 
 .move-desc button {
     width: 100%;
-    border: none;
     background-color: var(--second);
     color: var(--prim);
-    padding: .25em;
+    padding: .75em;
     font-family: 'Quicksand', sans-serif;
     font-size: 100%;
+    font-weight: 600;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .movie-card {
+        flex-direction: row;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    h1 {
+        font-size: 350%;
+    }
+
+    header p {
+        font-size: 150%;
+    }
+
+    /* Main */
+    #main-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Seach Bar */
+    #search-container {
+        width: 40%;
+    }
+
+    /* Movie List */
+    #movie-container {
+        width: 59%;
+    }
+
+    .movie-card img {
+        width: 30%;
+    }
+
+    .move-desc button {
+        padding: .5em;
+    }
 }

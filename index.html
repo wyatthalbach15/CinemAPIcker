@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,22 +11,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Oswald:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Oswald:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
-    
-    <header class="backlight">
+
+    <header class="backlight rounded">
         <h1>CinemAPIcker</h1>
         <p>For movie lovers who want more</p>
     </header>
     <main id="main-container">
         <!-- Search box div -->
-        <div id="search-container" class="backlight rounded">
+        <section id="search-container" class="backlight rounded">
             <form>
-    
+
                 <input type="text" id="user-input" class="rounded">
                 <select class="rounded">
                     <option>Select an option...</option>
@@ -36,47 +40,60 @@
                 </select>
                 <button type="submit" id="search-button" class="rounded">Search</button>
             </form>
-        </div>
+        </section>
 
         <!-- Movie list div -->
-        <div id="movie-container">
+        <section id="movie-container">
             <ul id="movie-list">
                 <!-- Placeholder for styling -->
                 <li>
                     <div class="movie-card rounded">
-                        <img src="https://via.placeholder.com/150" >
+                        <img src="https://via.placeholder.com/150">
                         <div class="move-desc">
-                            <h3>Description</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing.</p>
+                            <div>
+                                <h3>Description</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing.
+                                </p>
+                            </div>
                             <button class="rounded">Select</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="movie-card rounded">
-                        <img src="https://via.placeholder.com/150" >
+                        <img src="https://via.placeholder.com/150">
                         <div class="move-desc">
-                            <h3>Description</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing.</p>
+                            <div>
+                                <h3>Description</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing.
+                                </p>
+                            </div>
                             <button class="rounded">Select</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="movie-card rounded">
-                        <img src="https://via.placeholder.com/150" >
+                        <img src="https://via.placeholder.com/150">
                         <div class="move-desc">
-                            <h3>Description</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing.</p>
+                            <div>
+                                <h3>Description</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing.
+                                </p>
+                            </div>
                             <button class="rounded">Select</button>
                         </div>
                     </div>
                 </li>
             </ul>
-        </div>
+        </section>
     </main>
 
     <!-- JavaScript -->
     <script src="./assets/script.js"></script>
 </body>
+
 </html>
