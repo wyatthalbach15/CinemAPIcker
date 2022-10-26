@@ -1,3 +1,8 @@
+var userInput = document.querySelector("#user-input");
+var dropDown = document.querySelector("#drop-down");
+var searchButton = document.querySelector("#search-button");
+
+
 var imdbApiUrl = "https://imdb-api.com/en/API/AdvancedSearch/k_zns86b2w/?genres=fantasy";
 
 // fetch(imdbApiUrl).then(function(response) {
