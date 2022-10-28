@@ -159,10 +159,19 @@ header {
     margin-bottom: .5em;
 }
 
-.movie-desc button {
+.streaming-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-desc a {
     width: 100%;
+    text-decoration: none;
+    background-color: var(--second);
     color: var(--prim);
-    padding: .75em;
+    padding: .3em .75em;
+    margin: 0 .1em;
+    border-radius: 20em;
     font-family: 'Quicksand', sans-serif;
     font-size: 100%;
     font-weight: 600;
@@ -174,12 +183,13 @@ header {
     box-shadow: 0 0 8px 2px var(--quart);
 }
 
-.movie-desc button:hover {
+.movie-desc a:hover {
     background-color: #92453f;
     box-shadow: 0 0 8px 2px var(--second);
 }
 
-button:active {
+button:active,
+a:active {
     transform: scale(.98, 0.9);
 }
 
