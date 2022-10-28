@@ -28,7 +28,7 @@
     <main id="main-container">
         <!-- Search box div -->
         <section id="search-container" class="backlight rounded">
-            <form>
+            <form id="search-form">
 
                 <!-- Search Input -->
                 <label for="user-input" class="mb-5">Search by Title or Genre:</label>
@@ -38,7 +38,7 @@
                 <!-- Drop Down -->
                 <label>Choose One:</label>
                 <select class="rounded" id="drop-down" name="drop-down">
-                    <option>Select an option...</option>
+                    <option value="SelectOption">Select an option...</option>
                     <option value="title">Title</option>
                     <option value="genre">Genre</option>
                 </select>
@@ -47,7 +47,7 @@
                 <p>What kind of titles do you want to see?</p>
                 <div id="checkbox-container">
                     <label for="film">
-                        <input type="checkbox" id="film" name="film" value="feature">Movies
+                        <input type="checkbox" id="film" name="film" value="movies">Movies
                     </label>
                     
                     <label for="tv">
