@@ -6,6 +6,22 @@ var searchForm = document.querySelector("#search-form");
 var checkBoxContainer = document.querySelector("#checkbox-container");
 var filmCheck =document.querySelector("#film");
 var tvCheck = document.querySelector("#tv");
+var userInput = document.querySelector("#user-input");
+var dropDown = document.querySelector("#drop-down");
+var searchButton = document.querySelector("#search-button");
+var form = document.getElementById("search-form");
+
+if (userInput.value) {
+    console.log(userInput.value);
+
+}
+
+function submitFunction(e){
+    e.preventDefault();
+    console.log(userInput.value)
+};
+
+form.addEventListener("submit", submitFunction);
 
 function selectionsValue (e) {
     e.preventDefault();
@@ -16,7 +32,6 @@ function selectionsValue (e) {
     var filmcheckBox = filmCheck.checked;
     console.log(tvcheckBox);
     console.log(filmcheckBox);
-    console.log(userInput.value)
     if(selectOptions != "title" && selectOptions != "genre"){
         alert("Please pick a different option either Title or Genre");
         var selectOptions = dropDown.value;
