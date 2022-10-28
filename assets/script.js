@@ -1,8 +1,15 @@
+var searchContainer = document.querySelector("#search-container")
+var userInput = document.querySelector("#user-input");
+var searchBtn = document.querySelector("#search-button");
+var dropDown = document.querySelector("#drop-down");
+var searchForm = document.querySelector("#search-form");
+var checkBoxContainer = document.querySelector("#checkbox-container");
+var filmCheck =document.querySelector("#film");
+var tvCheck = document.querySelector("#tv");
 var userInput = document.querySelector("#user-input");
 var dropDown = document.querySelector("#drop-down");
 var searchButton = document.querySelector("#search-button");
 var form = document.getElementById("search-form");
-
 
 if (userInput.value) {
     console.log(userInput.value);
@@ -15,6 +22,27 @@ function submitFunction(e){
 };
 
 form.addEventListener("submit", submitFunction);
+
+function selectionsValue (e) {
+    e.preventDefault();
+    var selectOptions = dropDown.value;
+    var selectOptions = dropDown.value;
+    console.log(selectOptions);
+    var tvcheckBox = tvCheck.checked;
+    var filmcheckBox = filmCheck.checked;
+    console.log(tvcheckBox);
+    console.log(filmcheckBox);
+    if(selectOptions != "title" && selectOptions != "genre"){
+        alert("Please pick a different option either Title or Genre");
+        var selectOptions = dropDown.value;
+        console.log(selectOptions);
+        var tvcheckBox = tvCheck.checked;
+        var filmcheckBox = filmCheck.checked;
+        console.log(tvcheckBox);
+        console.log(filmcheckBox);
+    }
+}
+searchForm.addEventListener("submit", selectionsValue);
 
 
 var imdbApiUrl = "https://imdb-api.com/en/API/AdvancedSearch/k_zns86b2w/?genres=fantasy";
