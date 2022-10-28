@@ -30,14 +30,32 @@
         <section id="search-container" class="backlight rounded">
             <form id="search-form">
 
-                <input type="text" id="user-input"  class="rounded">
-                <select class="rounded">
+
+                <!-- Search Input -->
+                <label for="user-input" class="mb-5">Search by Title or Genre:</label>
+                <input type="text" id="user-input" name="user-input" class="rounded">
+
+                
+                <!-- Drop Down -->
+                <label>Choose One:</label>
+                <select class="rounded" id="drop-down" name="drop-down">
                     <option>Select an option...</option>
-                    <option>Title</option>
-                    <option>Genre</option>
-                    <option>Release Date</option>
-                    <option>Rating</option>
+                    <option value="title">Title</option>
+                    <option value="genre">Genre</option>
                 </select>
+
+                <!-- Checkbox -->
+                <p>What kind of titles do you want to see?</p>
+                <div id="checkbox-container">
+                    <label for="film">
+                        <input type="checkbox" id="film" name="film" value="feature">Movies
+                    </label>
+                    
+                    <label for="tv">
+                        <input type="checkbox" id="tv" name="tv" value="tv_series">TV Series
+                    </label>
+                </div>
+
                 <button type="submit" id="search-button" class="rounded">Search</button>
             </form>
         </section>
