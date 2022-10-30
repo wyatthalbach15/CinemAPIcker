@@ -1,21 +1,29 @@
 var userInput = document.querySelector("#user-input");
-var dropDown = document.querySelector("#drop-down");
 var searchButton = document.querySelector("#search-button");
-var form = document.getElementById("search-form");
+var dropDown = document.getElementById("drop-down");
+var tv = document.querySelector("#tv");
+var film = document.querySelector("#film");
+var form = document.getElementById("search-button");
 
 
-if (userInput.value) {
-    console.log(userInput.value);
-
-}
-
-function submitFunction(e){
+function submitFunction(e) {
     e.preventDefault();
-    console.log(userInput.value)
+    if (userInput.value) {
+        console.log(userInput.value);
+        console.log(dropDown.value);
+    };
+    console.log(film.checked);
+    console.log(tv.checked);
 };
 
-form.addEventListener("submit", submitFunction);
 
+for(var i =0;i < dropDown.DOCUMENT_POSITION_DISCONNECTED.length; i++){
+    if (dropDown.options[i].value == c ){
+        dropDown.options[i].selected = true;
+    }
+}
+
+form.addEventListener("click", submitFunction);
 
 var imdbApiUrl = "https://imdb-api.com/en/API/AdvancedSearch/k_zns86b2w/?genres=fantasy";
 
@@ -59,7 +67,7 @@ function getStreamingData(movieId) {
 
                     if (!nameArray.includes(data[i].name)) {
 
-                        
+
                         let streamingObject = {
                             name: data[i].name,
                             url: data[i].web_url
@@ -67,14 +75,14 @@ function getStreamingData(movieId) {
 
                         streamingArray.push(streamingObject);
                         nameArray.push(data[i].name)
-                    } 
+                    }
 
                 }
 
-                
+
                 console.log("Name Array");
                 console.log(nameArray);
-                
+
                 console.log("Streaming Array");
                 console.log(streamingArray);
 
