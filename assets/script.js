@@ -1,5 +1,5 @@
 var searchContainer = document.querySelector("#search-container")
-var userInput = document.querySelector("#user-input").;
+var userInput = document.querySelector("#user-input");
 var dropDown = document.querySelector("#drop-down");
 var searchForm = document.querySelector("#search-form");
 var checkBoxContainer = document.querySelector("#checkbox-container");
