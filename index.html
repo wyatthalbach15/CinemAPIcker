@@ -15,49 +15,55 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Oswald:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
 
-    <header class="backlight rounded">
-        <h1>CinemAPIcker</h1>
-        <p>For movie lovers who want more</p>
+    <header id="banner" class="backlight rounded my-2 mx-auto p-2 has-text-centered">
+        <h1 class="title is-size-1-tablet">CinemAPIcker</h1>
+        <p class="subtitle is-size- 4">For movie lovers who want more</p>
     </header>
-    <main id="main-container">
+    <main id="main-container" class="is-flex is-flex-direction-column my-5 mx-4">
         <!-- Search box div -->
-        <section id="search-container" class="backlight rounded">
-                <h2>Get Recommendations</h2>
+
+        <section id="search-container" class="backlight rounded py-4 px-2 mb-5">
 
             <form id="search-form">
+                <h2 class="title is-4 mb-2 has-text-centered">Get Recommendations</h2>
 
                 <!-- Search Input -->
                 <label for="user-input" class="mb-5">Search by Title or Genre:</label>
-                <input type="text" id="user-input" name="user-input" class="rounded">
+                <input type="text" id="user-input" name="user-input" class="input my-2">
 
                 
                 <!-- Drop Down -->
                 <label>Choose One:</label>
-                <select class="rounded" id="drop-down" name="drop-down">
-                    <option value="SelectOption">Select an option...</option>
+
+                <select class="input my-2" id="drop-down" name="drop-down">
+                    <option value="none">Select an option...</option>
+
                     <option value="title">Title</option>
                     <option value="genre">Genre</option>
                 </select>
 
                 <!-- Checkbox -->
                 <p>What kind of titles do you want to see?</p>
-                <div id="checkbox-container">
-                    <label for="film">
-                        <input type="checkbox" id="film" name="film" value="movies">Movies
+                <div id="checkbox-container" class="is-flex is-flex-direction-row is-justify-content-space-around is-align-items-center my-2">
+                    <label for="film" class="checkbox is-flex is-align-items-center">
+                        <input type="checkbox" id="film" name="film" value="movies" class="mr-2">Movies
                     </label>
                     
-                    <label for="tv">
-                        <input type="checkbox" id="tv" name="tv" value="tv_series">TV Series
+                    <label for="tv" class="checkbox is-flex is-align-items-center">
+                        <input type="checkbox" id="tv" name="tv" value="tv_series" class="mr-2">TV Series
                     </label>
                 </div>
 
-                <button type="submit" id="search-button" class="rounded">Search</button>
+                <button type="submit" id="search-button" class="button">Search</button>
             </form>
         </section>
 
@@ -67,10 +73,12 @@
                 <!-- Placeholder for styling -->
                 <li>
                     <div class="movie-card rounded">
-                        <img src="https://via.placeholder.com/150">
+                        <figure class="image">
+                            <img src="https://via.placeholder.com/150">
+                        </figure>
                         <div class="movie-desc">
-                            <div>
-                                <h3>Description</h3>
+                            <div class="content">
+                                <h3 class="title is-5">Description</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore et dolore magna aliqua. Et tortor at risus viverra adipiscing.
                                 </p>
