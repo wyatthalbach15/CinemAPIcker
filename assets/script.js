@@ -1,26 +1,29 @@
 var searchContainer = document.querySelector("#search-container")
 var userInput = document.querySelector("#user-input");
-var searchBtn = document.querySelector("#search-button");
 var dropDown = document.querySelector("#drop-down");
 var searchForm = document.querySelector("#search-form");
 var checkBoxContainer = document.querySelector("#checkbox-container");
 var filmCheck =document.querySelector("#film");
 var tvCheck = document.querySelector("#tv");
 var searchButton = document.querySelector("#search-button");
-var form = document.getElementById("search-form");
 
+
+
+function submitFunction(e) {
+
+  e.preventDefault();
+  
 if (userInput.value) {
     console.log(userInput.value);
+    console.log(dropDown.value);
+    console.log(filmCheck.checked);
+    console.log(tvCheck.checked);
 
 }
+}
 
-function submitFunction(e){
-    e.preventDefault();
-    console.log(userInput.value)
-};
-
-form.addEventListener("submit", submitFunction);
-
+// Event listener for search form
+searchButton.addEventListener("click", submitFunction);
 
 function selectionsValue (e) {
     e.preventDefault();
@@ -78,7 +81,7 @@ function getStreamingData(movieId) {
 
                     if (!nameArray.includes(data[i].name)) {
 
-                        
+
                         let streamingObject = {
                             name: data[i].name,
                             url: data[i].web_url
@@ -86,14 +89,14 @@ function getStreamingData(movieId) {
 
                         streamingArray.push(streamingObject);
                         nameArray.push(data[i].name)
-                    } 
+                    }
 
                 }
 
-                
+
                 console.log("Name Array");
                 console.log(nameArray);
-                
+
                 console.log("Streaming Array");
                 console.log(streamingArray);
 
