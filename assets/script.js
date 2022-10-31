@@ -1,31 +1,55 @@
+var searchContainer = document.querySelector("#search-container")
 var userInput = document.querySelector("#user-input");
+var dropDown = document.querySelector("#drop-down");
+var searchForm = document.querySelector("#search-form");
+var checkBoxContainer = document.querySelector("#checkbox-container");
+var filmCheck =document.querySelector("#film");
+var tvCheck = document.querySelector("#tv");
 var searchButton = document.querySelector("#search-button");
-var dropDown = document.getElementById("drop-down");
-var tv = document.querySelector("#tv");
-var film = document.querySelector("#film");
-var form = document.getElementById("search-button");
+
 
 
 function submitFunction(e) {
-    e.preventDefault();
-    if (userInput.value) {
-        console.log(userInput.value);
-        console.log(dropDown.value);
-    };
-    console.log(film.checked);
-    console.log(tv.checked);
-};
 
+  e.preventDefault();
+  
+if (userInput.value) {
+    console.log(userInput.value);
+    console.log(dropDown.value);
+    console.log(filmCheck.checked);
+    console.log(tvCheck.checked);
 
-for(var i =0;i < dropDown.DOCUMENT_POSITION_DISCONNECTED.length; i++){
-    if (dropDown.options[i].value == c ){
-        dropDown.options[i].selected = true;
-    }
+}
 }
 
-form.addEventListener("click", submitFunction);
+// Event listener for search form
+searchButton.addEventListener("click", submitFunction);
 
-var imdbApiUrl = "https://imdb-api.com/en/API/AdvancedSearch/k_zns86b2w/?genres=fantasy";
+function selectionsValue (e) {
+    e.preventDefault();
+    var selectOptions = dropDown.value;
+    var selectOptions = dropDown.value;
+    console.log(selectOptions);
+
+    var tvcheckBox = tvCheck.checked;
+    var filmcheckBox = filmCheck.checked;
+    console.log(tvcheckBox);
+    console.log(filmcheckBox);
+
+    if(selectOptions != "title" && selectOptions != "genre"){
+        alert("Please pick a different option either Title or Genre");
+        var selectOptions = dropDown.value;
+        console.log(selectOptions);
+        var tvcheckBox = tvCheck.checked;
+        var filmcheckBox = filmCheck.checked;
+        console.log(tvcheckBox);
+        console.log(filmcheckBox);
+    }
+}
+// searchForm.addEventListener("submit", selectionsValue);
+
+
+var imdbApiUrl = "https://imdb-api.com/en/API/AdvancedSearch/k_zns86b2w/?title=the lord of the rings";
 
 // fetch(imdbApiUrl).then(function(response) {
 //     if (response.ok){
@@ -36,16 +60,6 @@ var imdbApiUrl = "https://imdb-api.com/en/API/AdvancedSearch/k_zns86b2w/?genres=
 //     }
 // });
 
-var watchModeApiUrl = "https://api.watchmode.com/v1/title/tt0167260/sources/?apiKey=B5EKPpGzVjzybQt6fdVSnprxP9IXaVfuAUPtCiVC";
-
-// fetch(watchModeApiUrl).then(function(response) {
-//     if (response.ok){
-//         response.json().then(function(data) {
-//             console.log("--Streaming--");
-//             console.log(data);
-//         });
-//     }
-// });
 
 // Gets streaming data
 function getStreamingData(movieId) {
