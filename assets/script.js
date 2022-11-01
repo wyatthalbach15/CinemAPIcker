@@ -33,6 +33,8 @@ function submitFunction(e) {
 
         }
 
+        movieList.textContent = "";
+
         // calls searchTitles function
         searchTitles(selectOptions, tvcheckBox, filmcheckBox);
 
@@ -248,9 +250,12 @@ function dataSorter(data) {
             }
 
             // Send title object array to generate movie card function
+
             console.log(data.results[i].title + " data");
+            console.log(data);
+            console.log("Title Object")
             console.log(titleObject);
-           
+            addMovieData(titleObject);
         }
 
     }
@@ -327,7 +332,7 @@ function addMovieData(movieObject) {
     movieYear.textContent = movieObject.year;
     movieRating.textContent = movieObject.rating;
     moviePlot.textContent = movieObject.plot;
-    movieStreaming.textContent = movieObject.streaming;
+    // movieStreaming.textContent = movieObject.streaming;
 
     figureEl.appendChild(movieImage);
     movieCard.appendChild(figureEl);
@@ -335,9 +340,41 @@ function addMovieData(movieObject) {
     topRow.appendChild(movieTitle);
     topRow.appendChild(movieRating);
     contentDiv.appendChild(topRow);
+    contentDiv.appendChild(movieYear);
     contentDiv.appendChild(moviePlot);
     movieDescription.appendChild(contentDiv);
+    
     //streaming (future)
+    // render streaming service
+    console.log("-----------------------")
+    console.log(movieObject.streaming);
+    console.log(movieObject.streaming.length);
+
+
+
+    for (let i = 0; i < movieObject.streaming.length; i++) {
+        
+        console.log("it works!")
+        let streamListEl = document.createElement("li");
+        let streamLink = document.createElement("a")
+        
+        let thisService = movieObject.streaming[i].name;
+        let thisURL = movieObject.streaming[i].url;
+        
+        streamLink.setAttribute("href", thisURL);
+        streamLink.setAttribute("target", "_blank");
+        streamLink.setAttribute("class", "stream-link");
+
+        streamLink.textContent = thisService;
+        
+        streamListEl.appendChild(streamLink);
+        streamingListUl.appendChild(streamListEl);
+        // streamingListUl.append(streamListEl);
+    }
+    
+    movieStreaming.appendChild(streamingListUl);
+    movieDescription.appendChild(movieStreaming);
+
     movieCard.appendChild(movieDescription);
     listEl.appendChild(movieCard);
     movieList.appendChild(listEl);
@@ -351,8 +388,8 @@ function addMovieData(movieObject) {
 
 function addStreamingData(streamingArray) {
 
-    let streamingDiv = document.createElement("div");
-    let streamingListUl = document.createElement("ul");
+    // let streamingDiv = document.createElement("div");
+    // let streamingListUl = document.createElement("ul");
 
     streamingListUl.setAttribute("class", "streaming-list");
 
