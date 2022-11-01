@@ -196,6 +196,10 @@ body {
     flex-wrap: wrap;
 }
 
+.streaming-list li {
+    margin-bottom: .5em;
+}
+
 .movie-desc a {
     width: 100%;
     text-decoration: none;
@@ -245,9 +249,9 @@ a:active {
         flex-direction: row;
     }
 
-    #movie-container img {
-        width: 15%;
-    }
+    /* #movie-container img {
+        width: 25%;
+    } */
 }
 
 /* Large devices (desktops, 992px and up) */
