@@ -29,8 +29,12 @@ Using our site is as easy as 1,2,3!
 
 ### Credit
 Grant Gorosave - https://github.com/ggorosave
+---
 Eric Asato - https://github.com/ejasato
+---
 Zack Levin - https://github.com/TheRealPlanZ
+---
 Jo Abanishe - https://github.com/aabanishe
+---
 Wyatt Halbach - https://github.com/wyatthalbach15
 
