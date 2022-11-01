@@ -196,6 +196,10 @@ body {
     flex-wrap: wrap;
 }
 
+.streaming-list li {
+    margin-bottom: .5em;
+}
+
 .movie-desc a {
     width: 100%;
     text-decoration: none;

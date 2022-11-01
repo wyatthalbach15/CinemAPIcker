@@ -20,12 +20,6 @@ function submitFunction(e) {
         var tvcheckBox = tvCheck.checked;
         var filmcheckBox = filmCheck.checked;
 
-        // Delete Later
-        console.log(userInput.value);
-        console.log(selectOptions);
-        console.log(tvcheckBox);
-        console.log(filmcheckBox);
-
         if (selectOptions != "title" && selectOptions != "genre") {
 
             // Change alert to modal?
@@ -34,6 +28,10 @@ function submitFunction(e) {
         }
 
         movieList.textContent = "";
+
+        // Sets an empty item in local storage for later use
+        localStorage.setItem("streamingServices", JSON.stringify("empty"));
+
 
         // calls searchTitles function
         searchTitles(selectOptions, tvcheckBox, filmcheckBox);
@@ -55,7 +53,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
         // Checks if both boxes are checked
         if ((tvcheckBox === true) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?title=" + userInput.value + "&title_type=feature,tv_series";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value + "&title_type=feature,tv_series";
 
             // Delete later - logs the api url
             console.log(imdbAPI);
@@ -78,7 +76,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only film box is checked
         } else if ((tvcheckBox === false) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?title=" + userInput.value + "&title_type=feature";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value + "&title_type=feature";
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -98,7 +96,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only tv series box is checked 
         } else if ((tvcheckBox === true) && (filmcheckBox === false)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?title=" + userInput.value + "&title_type=tv_series";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value + "&title_type=tv_series";
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -118,7 +116,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Runs the api without any parameters if no boxes are checked
         } else {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?title=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -142,7 +140,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
         // Checks if both boxes are checked
         if ((tvcheckBox === true) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?title_type=feature,tv_series&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title_type=feature,tv_series&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -162,7 +160,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only film is checked
         } else if ((tvcheckBox === false) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?title_type=feature&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title_type=feature&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -183,7 +181,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
             // Checks if only tv is checked
         } else if ((tvcheckBox === true) && (filmcheckBox === false)) {
 
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?title_type=tv_series&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title_type=tv_series&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -204,7 +202,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
             // Runs if no boxes are checked
         } else {
 
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_zns86b2w?genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -231,49 +229,42 @@ function dataSorter(data) {
     
 
     for (i = 0; i < data.results.length; i++) {
-        // console.log(data.results[1].title);
-        // console.log(typeof data.results[i].title);
-
+        
         if (data.results[i].imDbRating !== null && data.results[i].contentRating !== null) {
 
-            // Creates an empty arrat for the getStreamingData to push objects into
-            var streamingArray = [];
-            getStreamingData(streamingArray, data.results[i].id);
+            // Sets data to variables
+            let title = data.results[i].title;
+            let year = data.results[i].description;
+            let rating = data.results[i].imDbRating;
+            let image = data.results[i].image;
+            let plot = data.results[i].plot;
+            let id = data.results[i].id
             
-            let titleObject = {
-                title: data.results[i].title,
-                year: data.results[i].description,
-                rating: data.results[i].imDbRating,
-                image: data.results[i].image,
-                plot: data.results[i].plot,
-                streaming: streamingArray
-            }
+            // Calls the streaming data function and passes all data to it
+            getStreamingData(title, year, rating, image, plot, id);
 
-            // Send title object array to generate movie card function
-
-            console.log(data.results[i].title + " data");
-            console.log(data);
-            console.log("Title Object")
-            console.log(titleObject);
-            addMovieData(titleObject);
         }
 
     }
 
-
 }
 
 // Gets streaming data
-function getStreamingData(streamingArray, movieId) {
-    var watchModeApiUrl = "https://api.watchmode.com/v1/title/" + movieId + "/sources/?apiKey=GxDnEWsxu9BHe88iX3i9jGGcQZ0Z7rNGuo805kOG";
+function getStreamingData(title, year, rating, image, plot, id) {
+    var watchModeApiUrl = "https://api.watchmode.com/v1/title/" + id + "/sources/?apiKey=9N19VEvmCdwvA93rucNoqy9DXPXegly8lYdQNRxU";
 
     fetch(watchModeApiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                // console.log("--Streaming--");
-                // console.log(data);
+
+                console.log(data);
                 
-                let nameArray = []
+                // Varaibles
+                let nameArray = [];
+                let streamingArray = [];
+
+                // Remove previously saved data
+                localStorage.removeItem("streamingServices");
 
                 for (let i = 0; i < data.length; i++) {
 
@@ -292,6 +283,7 @@ function getStreamingData(streamingArray, movieId) {
 
                 }
 
+                addMovieData(title, year, rating, image, plot, streamingArray); 
             });
 
         }
@@ -302,7 +294,7 @@ function getStreamingData(streamingArray, movieId) {
 
 
 // add movie data to "movie-container"
-function addMovieData(movieObject) {
+function addMovieData(title, year, rating, image, plot, streamingArray) {
     let movieDescription = document.createElement("div");
     let movieCard = document.createElement("div");
     let movieImage = document.createElement("img");
@@ -317,6 +309,8 @@ function addMovieData(movieObject) {
     let contentDiv = document.createElement("div");
     let ratingIcon = document.createElement("i");
     let figureEl = document.createElement("figure");
+    let buttonDiv = document.createElement("div");
+    let addButtonEl = document.createElement("button");
 
     movieDescription.classList.add("movie-desc");
     movieCard.classList.add("movie-card", "rounded");
@@ -326,13 +320,15 @@ function addMovieData(movieObject) {
     ratingIcon.classList.add("fa-solid", "fa-star");
     contentDiv.classList.add("content");
     figureEl.classList.add("image");
+    buttonDiv.classList.add("add-btn-container");
+    addButtonEl.classList.add("add-button")
 
-    movieImage.src = movieObject.image;
-    movieTitle.textContent = movieObject.title;
-    movieYear.textContent = movieObject.year;
-    movieRating.textContent = movieObject.rating;
-    moviePlot.textContent = movieObject.plot;
-    // movieStreaming.textContent = movieObject.streaming;
+    movieImage.src = image;
+    movieTitle.textContent = title;
+    movieYear.textContent = year;
+    movieRating.textContent = rating;
+    moviePlot.textContent = plot;
+    addButtonEl.textContent = "+ Add to Watchlist"
 
     figureEl.appendChild(movieImage);
     movieCard.appendChild(figureEl);
@@ -344,22 +340,15 @@ function addMovieData(movieObject) {
     contentDiv.appendChild(moviePlot);
     movieDescription.appendChild(contentDiv);
     
-    //streaming (future)
     // render streaming service
-    console.log("-----------------------")
-    console.log(movieObject.streaming);
-    console.log(movieObject.streaming.length);
-
-
-
-    for (let i = 0; i < movieObject.streaming.length; i++) {
+    for (let i = 0; i < streamingArray.length; i++) {
         
         console.log("it works!")
         let streamListEl = document.createElement("li");
         let streamLink = document.createElement("a")
         
-        let thisService = movieObject.streaming[i].name;
-        let thisURL = movieObject.streaming[i].url;
+        let thisService = streamingArray[i].name;
+        let thisURL = streamingArray[i].url;
         
         streamLink.setAttribute("href", thisURL);
         streamLink.setAttribute("target", "_blank");
@@ -375,78 +364,51 @@ function addMovieData(movieObject) {
     movieStreaming.appendChild(streamingListUl);
     movieDescription.appendChild(movieStreaming);
 
+    buttonDiv.appendChild(addButtonEl);
+    movieDescription.appendChild(buttonDiv);
+
     movieCard.appendChild(movieDescription);
     listEl.appendChild(movieCard);
     movieList.appendChild(listEl);
+
+    // Applies event lister to all add to watchlist buttons
+    addButtonEl.addEventListener("click", addToWatchlist);
     
 }
 
-
-// Delete later
-// getStreamingData("tt0167260");
-
-
-function addStreamingData(streamingArray) {
-
-    // let streamingDiv = document.createElement("div");
-    // let streamingListUl = document.createElement("ul");
-
-    streamingListUl.setAttribute("class", "streaming-list");
-
-    // render streaming service
-    for (let i = 0; i < streamingArray.length; i++) {
-
-        let thisService = streamingArray[i].name;
-        let thisURL = streamingArray[i].url;
-
-        let streamListEl = document.createElement("li");
-        let streamLink = document.createElement("a")
-
-        streamLink.setAttribute("src", thisURL);
-        streamLink.setAttribute("target", "_blank");
-        streamLink.setAttribute("class", "stream-link");
-
-        streamLink.textContent = thisService;
-
-        streamListEl.appendChild(streamLink);
-        streamingListUl.appendChild(streamListEl);
-    }
-
-    streamingDiv.appendChild(streamingListUl);
-
-    return streamingDiv;
-}
-
 // Adds title to watchlist and saves data to local storgage
-function addToWatchlist(newTitle, newRating, newImage, newPlotSum, newStreaming) {
+function addToWatchlist() {
 
+    let title = document.getElementsByTagName("h3");
+    console.log("added!");
+    console.log(this.title);
     // May need to use "this" and assign values from movie card
 
     // Makes an object to save in local storage
-    var addTitle = {
-        title: newTitle,
-        rating: newRating,
-        image: newImage,
-        plot: newPlotSum,
-        streaming: newStreaming
-    }
+    // var addTitle = {
+    //     title: newTitle,
+    //     rating: newRating,
+    //     image: newImage,
+    //     plot: newPlotSum,
+    //     streaming: newStreaming
+    // }
 
     // Sets addTitle to local storage
-    localStorage.setItem(newTitle, JSON.stringify(addTitle));
+    // localStorage.setItem(newTitle, JSON.stringify(addTitle));
 
     // Looks for savedTitles in local storage
-    var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
+    // var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
 
     // If titleArray is not there, then it is created
-    if (titleArray === null) {
-        titleArray = [];
-        titleArray.push(newTitle);
-        localStorage.setItem("savedTitles", JSON.stringify(titleArray));
-    } else {
-        // if savedTitles does exist, then new title is pushed into the array and it is set in local storage again
-        titleArray.push(newTitle);
-        localStorage.setItem("savedTitles", JSON.stringify(titleArray));
-    }
+    // if (titleArray === null) {
+    //     titleArray = [];
+    //     titleArray.push(newTitle);
+    //     localStorage.setItem("savedTitles", JSON.stringify(titleArray));
+    // } else {
+    //     // if savedTitles does exist, then new title is pushed into the array and it is set in local storage again
+    //     titleArray.push(newTitle);
+    //     localStorage.setItem("savedTitles", JSON.stringify(titleArray));
+    // }
 
     // Calls renderWatchlist fucntion
 };
