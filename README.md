@@ -27,7 +27,7 @@ Using our site is as easy as 1,2,3!
 2. Type in a title/genre that you enjoy
 3. Hit the search button
 
-## Credit
+# Credit
 Grant Gorosave - https://github.com/ggorosave
 ---
 Eric Asato - https://github.com/ejasato
