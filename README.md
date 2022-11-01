@@ -1,7 +1,7 @@
 # **CinemAPIcker**                           
 ### For Movie Lovers Who Want More
 
-![cinemapicker](https://user-images.githubusercontent.com/112669621/199144059-21600f4c-2cac-4447-87cb-3ea04c756609.png)
+<img src="https://user-images.githubusercontent.com/112669621/199144059-21600f4c-2cac-4447-87cb-3ea04c756609.png" width="50/>
 
 ### What is CinemAPIcker?
 CinemAPIcker was designed to be a helpful tool for people that enjoy movies/tv and who may want to expand their portfolio.
