@@ -11,6 +11,8 @@ font-family: 'DM Sans', sans-serif;
 font-family: 'Quicksand', sans-serif;
 */
 
+/* @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" */
+
 :root {
     --prim: #E6DEDD;
     --second: #8f1d14;
@@ -18,20 +20,12 @@ font-family: 'Quicksand', sans-serif;
     --quart: #f89d13;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-button {
-    border: none;
-    background-color: var(--second);
+html {
+    background-color: var(--tert);
 }
 
 body {
     position: relative;
-    background-color: var(--tert);
     color: var(--prim);
     width: 100%;
     font-size: 16px;
@@ -54,73 +48,93 @@ body {
 }
 
 /* Header */
-header {
-    position: relative;
-    color: var(--quart);
+#banner {
     font-family: 'Oswald', sans-serif;
     width: 98%;
-    margin: 1em auto;
-    padding: .5em;
-    text-align: center;
 }
 
-/* Main Container */
-#main-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin: 2em 1em;
+#banner h1,
+#banner p {
+    color: var(--quart);
+}
+
+#search-watchlist {
+    width: 100%;
 }
 
 /* Search Bar */
 #search-container {
     width: 100%;
     max-height: 340px;
-    padding: 1em .5em;
-    margin-bottom: 1.5em;
 }
 
 #search-container h2 {
-    text-align: center;
-    margin-bottom: .5em;
+    color: var(--prim);
 }
 
 #search-container input[type=text],
 #search-container select {
-    width: 100%;
-    padding: .5em;
-    margin: .5em 0;
     background-color: var(--prim);
     font-family: 'DM Sans', sans-serif;
     font-size: 100%;
 }
 
-#checkbox-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: start;
-    margin: .5em 0;
-}
-
 #checkbox-container input[type=checkbox] {
-    margin-right: .5em;
     width: 20px;
     height: 20px;
 }
 
 #checkbox-container label {
-    display: flex;
-    align-items: center;
     font-size: 110%;
 }
 
 #search-container button {
     width: 100%;
-    padding: .5em;
+    background-color: var(--second);
     color: var(--prim);
+    border: none;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
     font-size: 120%;
+}
+
+/* Watchlist */
+#watchlist {
+    background-color: var(--prim);
+    width: 100%;
+    max-height: 180px;
+    overflow: scroll;
+}
+
+#watchlist-button {
+    width: 95%;
+}
+
+#watchlist button {
+    background-color: var(--quart);
+    width: 100%;
+    font-size: 130%;
+    font-weight: 600;
+}
+
+.divider {
+    width: 90%;
+    height: 1px;
+    background-color: #bdb6b5;
+}
+
+#watchlist-items {
+    color: var(--tert);
+}
+
+#watchlist-items li {
+    width: 80%;
+    margin: .25em 2em;
+}
+
+#watchlist-items h4 {
+    width: 100%;
+    font-weight: 600;
 }
 
 /* Movie List */
@@ -133,6 +147,7 @@ header {
     text-decoration: none;
 }
 
+/* Movie Cards use custom styles to simplify generating them in JS */
 .movie-card {
     display: flex;
     flex-direction: column;
@@ -142,21 +157,38 @@ header {
     margin-bottom: .5em;
 }
 
+.movie-card figure {
+    display: contents;
+} 
+
 .movie-card img {
-    width: 80%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 0.5em auto;
 }
 
 .movie-desc {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 .5em;
+    margin: .5em 1em;
 }
 
-.movie-desc h3,
-.movie-desc p {
-    margin-bottom: .5em;
+.top-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#movie-container h3 {
+    margin-bottom: 0;
+    align-self: center;
+}
+
+.top-row p {
+    background-color: var(--tert);
+    color: var(--prim);
+    border-radius: 20px;
+    height: fit-content;
+    padding: .2em .3em;
 }
 
 .streaming-list {
@@ -175,6 +207,20 @@ header {
     font-family: 'Quicksand', sans-serif;
     font-size: 100%;
     font-weight: 600;
+}
+
+.add-btn-container {
+    display: flex;
+    justify-content: end;
+}
+
+.add-button {
+    border: none;
+    border-radius: 5px;
+    background-color: var(--quart);
+    margin-top: 1em;
+    padding: .2em .6em;
+    font-weight: 500;
 }
 
 /* Animations */
@@ -199,29 +245,29 @@ a:active {
         flex-direction: row;
     }
 
+    #movie-container img {
+        width: 15%;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 
-    h1 {
-        font-size: 350%;
-    }
-
-    header p {
-        font-size: 150%;
-    }
-
     /* Main */
-    #main-container {
-        display: flex;
-        flex-direction: row;
+    #main-container {   
+        flex-direction: row !important; 
         justify-content: space-between;
     }
 
     /* Seach Bar */
-    #search-container {
+    #search-watchlist {
         width: 40%;
+    }
+
+    /* Watchlist */
+    #watchlist {
+        max-height: none;
+        overflow: hidden;
     }
 
     /* Movie List */
@@ -231,9 +277,5 @@ a:active {
 
     .movie-card img {
         width: 30%;
-    }
-
-    .move-desc button {
-        padding: .5em;
     }
 }
