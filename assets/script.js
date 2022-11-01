@@ -20,12 +20,6 @@ function submitFunction(e) {
         var tvcheckBox = tvCheck.checked;
         var filmcheckBox = filmCheck.checked;
 
-        // Delete Later
-        console.log(userInput.value);
-        console.log(selectOptions);
-        console.log(tvcheckBox);
-        console.log(filmcheckBox);
-
         if (selectOptions != "title" && selectOptions != "genre") {
 
             // Change alert to modal?
@@ -238,20 +232,7 @@ function dataSorter(data) {
         
         if (data.results[i].imDbRating !== null && data.results[i].contentRating !== null) {
 
-            // Calls the get streaming services function
-            // getStreamingData(data.results[i].id);
-
-            // let streamingArray = JSON.parse(localStorage.getItem("streamingServices"));
-
-            // let titleObject = {
-            //     title: data.results[i].title,
-            //     year: data.results[i].description,
-            //     rating: data.results[i].imDbRating,
-            //     image: data.results[i].image,
-            //     plot: data.results[i].plot,
-            //     id: data.results[i].id
-            // }
-
+            // Sets data to variables
             let title = data.results[i].title;
             let year = data.results[i].description;
             let rating = data.results[i].imDbRating;
@@ -262,12 +243,9 @@ function dataSorter(data) {
             // Calls the streaming data function and passes all data to it
             getStreamingData(title, year, rating, image, plot, id);
 
-            //  Calls add data function
-            // addMovieData(titleObject);
         }
 
     }
-
 
 }
 
@@ -305,9 +283,6 @@ function getStreamingData(title, year, rating, image, plot, id) {
 
                 }
 
-
-                // localStorage.setItem("streamingServices", JSON.stringify(streamingArray));
-
                 addMovieData(title, year, rating, image, plot, streamingArray); 
             });
 
@@ -334,6 +309,8 @@ function addMovieData(title, year, rating, image, plot, streamingArray) {
     let contentDiv = document.createElement("div");
     let ratingIcon = document.createElement("i");
     let figureEl = document.createElement("figure");
+    let buttonDiv = document.createElement("div");
+    let addButtonEl = document.createElement("button");
 
     movieDescription.classList.add("movie-desc");
     movieCard.classList.add("movie-card", "rounded");
@@ -343,12 +320,15 @@ function addMovieData(title, year, rating, image, plot, streamingArray) {
     ratingIcon.classList.add("fa-solid", "fa-star");
     contentDiv.classList.add("content");
     figureEl.classList.add("image");
+    buttonDiv.classList.add("add-btn-container");
+    addButtonEl.classList.add("add-button")
 
     movieImage.src = image;
     movieTitle.textContent = title;
     movieYear.textContent = year;
     movieRating.textContent = rating;
     moviePlot.textContent = plot;
+    addButtonEl.textContent = "+ Add to Watchlist"
 
     figureEl.appendChild(movieImage);
     movieCard.appendChild(figureEl);
@@ -361,9 +341,6 @@ function addMovieData(title, year, rating, image, plot, streamingArray) {
     movieDescription.appendChild(contentDiv);
     
     // render streaming service
-    // let streamingArray = JSON.parse(localStorage.getItem("streamingServices"));
-   
-
     for (let i = 0; i < streamingArray.length; i++) {
         
         console.log("it works!")
@@ -387,57 +364,34 @@ function addMovieData(title, year, rating, image, plot, streamingArray) {
     movieStreaming.appendChild(streamingListUl);
     movieDescription.appendChild(movieStreaming);
 
+    buttonDiv.appendChild(addButtonEl);
+    movieDescription.appendChild(buttonDiv);
+
     movieCard.appendChild(movieDescription);
     listEl.appendChild(movieCard);
     movieList.appendChild(listEl);
+
+    // Applies event lister to all add to watchlist buttons
+    addButtonEl.addEventListener("click", addToWatchlist);
     
 }
 
-// Gets streaming data and sets it to local storage
-function addStreamingData(streamingArray) {
-
-    // let streamingDiv = document.createElement("div");
-    // let streamingListUl = document.createElement("ul");
-
-    streamingListUl.setAttribute("class", "streaming-list");
-
-    // render streaming service
-    for (let i = 0; i < streamingArray.length; i++) {
-
-        let thisService = streamingArray[i].name;
-        let thisURL = streamingArray[i].url;
-
-        let streamListEl = document.createElement("li");
-        let streamLink = document.createElement("a")
-
-        streamLink.setAttribute("src", thisURL);
-        streamLink.setAttribute("target", "_blank");
-        streamLink.setAttribute("class", "stream-link");
-
-        streamLink.textContent = thisService;
-
-        streamListEl.appendChild(streamLink);
-        streamingListUl.appendChild(streamListEl);
-    }
-
-    streamingDiv.appendChild(streamingListUl);
-
-    return streamingDiv;
-}
-
 // Adds title to watchlist and saves data to local storgage
-function addToWatchlist(newTitle, newRating, newImage, newPlotSum, newStreaming) {
+function addToWatchlist() {
 
+    let title = document.getElementsByTagName("h3");
+    console.log("added!");
+    console.log(this.title);
     // May need to use "this" and assign values from movie card
 
     // Makes an object to save in local storage
-    var addTitle = {
-        title: newTitle,
-        rating: newRating,
-        image: newImage,
-        plot: newPlotSum,
-        streaming: newStreaming
-    }
+    // var addTitle = {
+    //     title: newTitle,
+    //     rating: newRating,
+    //     image: newImage,
+    //     plot: newPlotSum,
+    //     streaming: newStreaming
+    // }
 
     // Sets addTitle to local storage
     // localStorage.setItem(newTitle, JSON.stringify(addTitle));
