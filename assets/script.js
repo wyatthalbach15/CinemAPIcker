@@ -2,6 +2,7 @@ var userInput = document.querySelector("#user-input");
 var dropDown = document.querySelector("#drop-down");
 var searchButton = document.querySelector("#search-button");
 var form = document.getElementById("search-form");
+var movieList = document.querySelector("#movie-list")
 
 
 if (userInput.value) {
@@ -87,52 +88,33 @@ function getStreamingData(movieId) {
 // getStreamingData("tt0167260");
 
 
-// Gets movie data
-function getMovieData(movieId) {
-    var imdbApiUrl = "https://imdb-api.com/en/API/Title/k_zns86b2w/" + movieId;
 
-    fetch(imdbApiUrl).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
-                console.log("--IMDb--");
-                console.log(data);
-                console.log(data.fullTitle);
-
-                let movieObject = {
-                    title: data.fullTitle,
-                    year: data.year,
-                    rating: data.imDbRating,
-                    image: data.image,
-                    plot: data.plot,
-                    streaming: getStreamingData(data.id)
-                };
-
-                console.log(movieObject);
-
-                return;
-            });
-        }
-    });
-}
 
 // add movie data to "movie-container"
 function addMovieData(movieObject) {
-    let movieContainer = document.querySelector("#movie-container");
+    let movieDescription = document.createElement("div");
     let movieCard = document.createElement("div");
     let movieImage = document.createElement("img");
-    let movieTitle = document.createElement("h2");
+    let movieTitle = document.createElement("h3");
     let movieYear = document.createElement("p");
     let movieRating = document.createElement("p");
     let moviePlot = document.createElement("p");
-    let movieStreaming = document.createElement("p");
+    let movieStreaming = document.createElement("div");
+    let streamingListUl = document.createElement("ul");
+    let listEl = document.createElement("li");
+    let topRow = document.createElement("div");
+    let contentDiv = document.createElement("div");
+    let ratingIcon = document.createElement("i");
+    let figureEl = document.createElement("figure");
 
-    movieCard.classList.add("movie-card");
-    movieImage.classList.add("movie-image");
+    movieDescription.classList.add("movie-desc");
+    movieCard.classList.add("movie-card", "rounded");
+    streamingListUl.classList.add("streaming-list");
     movieTitle.classList.add("movie-title");
-    movieYear.classList.add("movie-year");
-    movieRating.classList.add("movie-rating");
-    moviePlot.classList.add("movie-plot");
-    movieStreaming.classList.add("movie-streaming");
+    topRow.classList.add("top-row");
+    ratingIcon.classList.add("fa-solid", "fa-star");
+    contentDiv.classList.add("content");
+    figureEl.classList.add("image");
 
     movieImage.src = movieObject.image;
     movieTitle.textContent = movieObject.title;
@@ -141,21 +123,19 @@ function addMovieData(movieObject) {
     moviePlot.textContent = movieObject.plot;
     movieStreaming.textContent = movieObject.streaming;
 
-    movieCard.appendChild(movieImage);
-    movieCard.appendChild(movieTitle);
-    movieCard.appendChild(movieYear);
-    movieCard.appendChild(movieRating);
-    movieCard.appendChild(moviePlot);
-    movieCard.appendChild(movieStreaming);
+    figureEl.appendChild(movieImage);
+    movieCard.appendChild(figureEl);
+    movieRating.appendChild(ratingIcon);
+    topRow.appendChild(movieTitle);
+    topRow.appendChild(movieRating);
+    contentDiv.appendChild(topRow);
+    contentDiv.appendChild(moviePlot);
+    movieDescription.appendChild(contentDiv);
+    //streaming (future)
+    movieCard.appendChild(movieDescription);
+    listEl.appendChild(movieCard);
+    movieList.appendChild(listEl);
+    
 
-    movieContainer.appendChild(movieCard);
 }
 
-// Add event listener to “Select” button for each movie (for retrieve streaming data function)
-function SelectButton(movieId) {
-    let selectButton = document.querySelector("#select-button-" + movieId);
-    selectButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        getStreamingData(movieId);
-    });
-}
