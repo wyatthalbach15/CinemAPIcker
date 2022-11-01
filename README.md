@@ -1,2 +1,2 @@
 # **CinemAPIcker**
-## For Movie Lovers Who Want More
+### For Movie Lovers Who Want More
