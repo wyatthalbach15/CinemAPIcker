@@ -19,3 +19,18 @@ In order to make our website as clean and functional as possible, we were able t
 
 These three resources not only make our website functional, but easy and enjoyable to use for anyone who might be searching for a new title to watch.
 
+The most exciting part about our site is that it is the first version of a site that can grow along with us. The next feature we hope to implement is a watchlist that will help users keep track of titles they find interesting but don't have the time to enjoy immediately. This and other exciting things are right aroudn the corner for CinemAPIcker!
+
+### How to Use CinemAPIcker
+Using our site is as easy as 1,2,3!
+1. Navigate to the webpage at...
+2. Type in a title/genre that you enjoy
+3. Hit the search button
+
+### Credit
+Grant Gorosave - https://github.com/ggorosave
+Eric Asato - https://github.com/ejasato
+Zack Levin - https://github.com/TheRealPlanZ
+Jo Abanishe - https://github.com/aabanishe
+Wyatt Halbach - https://github.com/wyatthalbach15
+
