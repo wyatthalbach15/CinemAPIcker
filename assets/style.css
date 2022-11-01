@@ -245,9 +245,9 @@ a:active {
         flex-direction: row;
     }
 
-    #movie-container img {
-        width: 15%;
-    }
+    /* #movie-container img {
+        width: 25%;
+    } */
 }
 
 /* Large devices (desktops, 992px and up) */
