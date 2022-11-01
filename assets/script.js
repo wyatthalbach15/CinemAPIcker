@@ -295,10 +295,58 @@ function getStreamingData(streamingArray, movieId) {
 
 }
 
+
+// add movie data to "movie-container"
+function addMovieData(movieObject) {
+    let movieDescription = document.createElement("div");
+    let movieCard = document.createElement("div");
+    let movieImage = document.createElement("img");
+    let movieTitle = document.createElement("h3");
+    let movieYear = document.createElement("p");
+    let movieRating = document.createElement("p");
+    let moviePlot = document.createElement("p");
+    let movieStreaming = document.createElement("div");
+    let streamingListUl = document.createElement("ul");
+    let listEl = document.createElement("li");
+    let topRow = document.createElement("div");
+    let contentDiv = document.createElement("div");
+    let ratingIcon = document.createElement("i");
+    let figureEl = document.createElement("figure");
+
+    movieDescription.classList.add("movie-desc");
+    movieCard.classList.add("movie-card", "rounded");
+    streamingListUl.classList.add("streaming-list");
+    movieTitle.classList.add("movie-title");
+    topRow.classList.add("top-row");
+    ratingIcon.classList.add("fa-solid", "fa-star");
+    contentDiv.classList.add("content");
+    figureEl.classList.add("image");
+
+    movieImage.src = movieObject.image;
+    movieTitle.textContent = movieObject.title;
+    movieYear.textContent = movieObject.year;
+    movieRating.textContent = movieObject.rating;
+    moviePlot.textContent = movieObject.plot;
+    movieStreaming.textContent = movieObject.streaming;
+
+    figureEl.appendChild(movieImage);
+    movieCard.appendChild(figureEl);
+    movieRating.appendChild(ratingIcon);
+    topRow.appendChild(movieTitle);
+    topRow.appendChild(movieRating);
+    contentDiv.appendChild(topRow);
+    contentDiv.appendChild(moviePlot);
+    movieDescription.appendChild(contentDiv);
+    //streaming (future)
+    movieCard.appendChild(movieDescription);
+    listEl.appendChild(movieCard);
+    movieList.appendChild(listEl);
+    
+}
+
+
 // Delete later
 // getStreamingData("tt0167260");
-
-// Add movie card function goes here
 
 
 function addStreamingData(streamingArray) {
@@ -369,3 +417,4 @@ function addToWatchlist(newTitle, newRating, newImage, newPlotSum, newStreaming)
 // Renders watchlist when page loads
 
 // Open watch list goes here
+
