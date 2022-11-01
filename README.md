@@ -5,10 +5,11 @@
 
 ### What is CinemAPIcker?
 CinemAPIcker was designed to be a helpful tool for people that enjoy movies/tv and who may want to expand their portfolio.
-With our clean design to make things simple, users will be able to do three things:
+With our clean design to make things simple, users will be able to do four things:
 - Search for a movie/tv show/genre that they enjoy
 - See where the relevant title/titles is/are currently streaming on the internet
 - See related titles to the original search
+- Add titles to a watchlist to save for later
 
 Not only will these features allow users to discover where to watch titles they already love, but it will allow them to discover new titles to enjoy that are similar to the ones familiar to them.
 
@@ -19,7 +20,7 @@ In order to make our website as clean and functional as possible, we were able t
 
 These three resources not only make our website functional, but easy and enjoyable to use for anyone who might be searching for a new title to watch.
 
-The most exciting part about our site is that it is the first version of a site that can grow along with us. The next feature we hope to implement is a watchlist that will help users keep track of titles they find interesting but don't have the time to enjoy immediately. This and other exciting things are right aroudn the corner for CinemAPIcker!
+The most exciting part about our site is that it is the first version of a site that can grow along with us. We're not sure which features we will add next, but there are so many ideas that couldn't make this cut that we're excited to explore in the future! 
 
 ### How to Use CinemAPIcker
 Using our site is as easy as 1,2,3!
