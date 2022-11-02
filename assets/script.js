@@ -405,7 +405,7 @@ function addToWatchlist() {
     }
     console.log(titleArray);
     // Calls renderWatchlist fucntion
-    renderWatchlistFirst(titleArray);
+    renderWatchlistFirst(newTitle);
 };
 
 // Renders watchlist per each click
@@ -427,7 +427,7 @@ function renderWatchlist(titleArrayFirst){
     var listMaker = document.createElement("li");
     var h4Maker = document.createElement("h4");
     watchList.appendChild(listMaker).appendChild(h4Maker);
-    h4Maker.innerHTML = titleArray[i];
+    h4Maker.innerHTML = titleArrayFirst[i];
     }
 }
 
