@@ -1,12 +1,18 @@
-# **CinemAPIcker**                           
+# **CinemAPIcker**    
+
+## Description
+
 ### For Movie Lovers Who Want More
 
-<img src="https://user-images.githubusercontent.com/112669621/199144059-21600f4c-2cac-4447-87cb-3ea04c756609.png" width="200"/>
+	![CinemAPIcker Logo](https://user-images.githubusercontent.com/112669621/199144059-21600f4c-2cac-4447-87cb-3ea04c756609.png)
 
-
-### Usage
+### ScreenShoot
 
 ![challenge picture](./assets/images/CinemAPIcker.png)
+
+### Link to Deployed Project
+
+[CinemAPIcker](https://wyatthalbach15.github.io/CinemAPIcker/)
 
 ### What is CinemAPIcker?
 CinemAPIcker was designed to be a helpful tool for people that enjoy movies/tv and who may want to expand their portfolio.
@@ -33,15 +39,15 @@ Using our site is as easy as 1,2,3!
 2. Type in a title/genre that you enjoy
 3. Hit the search button
 
-# Credit
-Grant Gorosave - https://github.com/ggorosave
----
-Eric Asato - https://github.com/ejasato
----
-Zack Levin - https://github.com/TheRealPlanZ!
+## Credit
 
+- Grant Gorosave - https://github.com/ggorosave
 ---
-Jo Abanishe - https://github.com/aabanishe
+- Eric Asato - https://github.com/ejasato
 ---
-Wyatt Halbach - https://github.com/wyatthalbach15
+- Zack Levin - https://github.com/TheRealPlanZ!
+---
+- Jo Abanishe - https://github.com/aabanishe
+---
+- Wyatt Halbach - https://github.com/wyatthalbach15
 ---
