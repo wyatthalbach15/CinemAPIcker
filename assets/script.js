@@ -23,7 +23,8 @@ function submitFunction(e) {
         if (selectOptions != "title" && selectOptions != "genre") {
 
             // Change alert to modal?
-            alert("Please pick either Title or Genre");
+            var modalBox = document.getElementById("modal");
+            modalBox.classList.add("is-active")
 
         }
 
@@ -391,6 +392,8 @@ function addToWatchlist() {
     // Looks for savedTitles in local storage
     var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
 
+    // renderWatchlistFirst(titleArray);
+
     // If titleArray is not there, then it is created
     if (titleArray === null) {
         titleArray = [];
@@ -402,8 +405,9 @@ function addToWatchlist() {
         localStorage.setItem("savedTitles", JSON.stringify(titleArray));
     }
     console.log(titleArray);
+    renderWatchlistFirst(newTitle);
     // Calls renderWatchlist fucntion
-    renderWatchlistFirst(titleArray);
+    // renderWatchlistFirst(titleArray);
 };
 
 // Renders watchlist per each click
@@ -417,22 +421,22 @@ function renderWatchlistFirst(titleArray){
     h4Maker.innerHTML = titleArray;
 }
 // Renders watchlist when page loads
-function renderWatchlist(titleArray){
+function renderWatchlist(titleArrayFinal){
     console.log("hello");
-    for(i=0;i<titleArray.length;i++){
+    for(i=0;i<titleArrayFinal.length;i++){
     console.log("hello");
     var watchList = document.querySelector("#watchlist-items");
     var listMaker = document.createElement("li");
     var h4Maker = document.createElement("h4");
     watchList.appendChild(listMaker).appendChild(h4Maker);
-    h4Maker.innerHTML = titleArray[i];
+    h4Maker.innerHTML = titleArrayFinal[i];
     }
 }
 
 //when page is deployed automatically 
 $(document).ready(function(){
-    var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
-    renderWatchlist(titleArray);
+    var titleArrayFinal = JSON.parse(localStorage.getItem("savedTitles"));
+    renderWatchlist(titleArrayFinal);
 })
 
 //clear Button for watchlist
