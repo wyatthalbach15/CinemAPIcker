@@ -6,9 +6,9 @@ var checkBoxContainer = document.querySelector("#checkbox-container");
 var filmCheck = document.querySelector("#film");
 var tvCheck = document.querySelector("#tv");
 var searchButton = document.querySelector("#search-button");
-var movieList = document.querySelector("#movie-list")
-
-
+var movieList = document.querySelector("#movie-list");
+var closeBtn = document.querySelector(".modal-background");
+var clearBtn = document.querySelector("#clear-Btn");
 
 function submitFunction(e) {
 
@@ -42,6 +42,11 @@ function submitFunction(e) {
 // Event listener for search form
 searchButton.addEventListener("click", submitFunction);
 
+closeBtn.addEventListener("click", function(){
+    var modalBox = document.getElementById("modal");
+    modalBox.classList.remove("is-active")
+})
+
 //the searchTitles function will go through multiple if statements depending on what the user specifies and fetches the API request and puts it into a array called data
 function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
@@ -53,7 +58,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
         // Checks if both boxes are checked
         if ((tvcheckBox === true) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value + "&title_type=feature,tv_series";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value + "&title_type=feature,tv_series";
 
             // Delete later - logs the api url
             console.log(imdbAPI);
@@ -76,7 +81,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only film box is checked
         } else if ((tvcheckBox === false) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value + "&title_type=feature";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value + "&title_type=feature";
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -96,7 +101,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only tv series box is checked 
         } else if ((tvcheckBox === true) && (filmcheckBox === false)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value + "&title_type=tv_series";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value + "&title_type=tv_series";
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -116,7 +121,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Runs the api without any parameters if no boxes are checked
         } else {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -140,7 +145,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
         // Checks if both boxes are checked
         if ((tvcheckBox === true) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title_type=feature,tv_series&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title_type=feature,tv_series&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -160,7 +165,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only film is checked
         } else if ((tvcheckBox === false) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title_type=feature&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title_type=feature&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -181,7 +186,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
             // Checks if only tv is checked
         } else if ((tvcheckBox === true) && (filmcheckBox === false)) {
 
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?title_type=tv_series&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title_type=tv_series&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -202,7 +207,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
             // Runs if no boxes are checked
         } else {
 
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_sce48n42?genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -251,7 +256,7 @@ function dataSorter(data) {
 
 // Gets streaming data
 function getStreamingData(title, year, rating, image, plot, id) {
-    var watchModeApiUrl = "https://api.watchmode.com/v1/title/" + id + "/sources/?apiKey=9N19VEvmCdwvA93rucNoqy9DXPXegly8lYdQNRxU";
+    var watchModeApiUrl = "https://api.watchmode.com/v1/title/" + id + "/sources/?apiKey=v5VZtsg5lbt249vIV6vy7EAY9wxqpw1rHXCDFVwS";
 
     fetch(watchModeApiUrl).then(function (response) {
         if (response.ok) {
@@ -375,45 +380,65 @@ function addMovieData(title, year, rating, image, plot, streamingArray) {
     addButtonEl.addEventListener("click", addToWatchlist);
     
 }
-
 // Adds title to watchlist and saves data to local storgage
 function addToWatchlist() {
 
-    let title = document.getElementsByTagName("h3");
-    console.log("added!");
-    console.log(this.title);
     // May need to use "this" and assign values from movie card
-
-    // Makes an object to save in local storage
-    // var addTitle = {
-    //     title: newTitle,
-    //     rating: newRating,
-    //     image: newImage,
-    //     plot: newPlotSum,
-    //     streaming: newStreaming
-    // }
-
-    // Sets addTitle to local storage
-    // localStorage.setItem(newTitle, JSON.stringify(addTitle));
+    var newTitle = $(this).parent(".add-btn-container").siblings(".content").children(".top-row").children(".movie-title").text();
+    console.log(newTitle);
+    console.log(typeof newTitle);
 
     // Looks for savedTitles in local storage
-    // var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
+    var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
 
     // If titleArray is not there, then it is created
-    // if (titleArray === null) {
-    //     titleArray = [];
-    //     titleArray.push(newTitle);
-    //     localStorage.setItem("savedTitles", JSON.stringify(titleArray));
-    // } else {
-    //     // if savedTitles does exist, then new title is pushed into the array and it is set in local storage again
-    //     titleArray.push(newTitle);
-    //     localStorage.setItem("savedTitles", JSON.stringify(titleArray));
-    // }
-
+    if (titleArray === null) {
+        titleArray = [];
+        titleArray.push(newTitle);
+        localStorage.setItem("savedTitles", JSON.stringify(titleArray));
+    } else {
+        // if savedTitles does exist, then new title is pushed into the array and it is set in local storage again
+        titleArray.push(newTitle);
+        localStorage.setItem("savedTitles", JSON.stringify(titleArray));
+    }
+    console.log(titleArray);
     // Calls renderWatchlist fucntion
+    renderWatchlistFirst(titleArray);
 };
 
+// Renders watchlist per each click
+function renderWatchlistFirst(titleArray){
+    console.log("hello");
+    console.log("hello");
+    var watchList = document.querySelector("#watchlist-items");
+    var listMaker = document.createElement("li");
+    var h4Maker = document.createElement("h4");
+    watchList.appendChild(listMaker).appendChild(h4Maker);
+    h4Maker.innerHTML = titleArray;
+}
 // Renders watchlist when page loads
+function renderWatchlist(titleArray){
+    console.log("hello");
+    for(i=0;i<titleArray.length;i++){
+    console.log("hello");
+    var watchList = document.querySelector("#watchlist-items");
+    var listMaker = document.createElement("li");
+    var h4Maker = document.createElement("h4");
+    watchList.appendChild(listMaker).appendChild(h4Maker);
+    h4Maker.innerHTML = titleArray[i];
+    }
+}
 
-// Open watch list goes here
+//when page is deployed automatically 
+$(document).ready(function(){
+    var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
+    renderWatchlist(titleArray);
+})
+
+//clear Button for watchlist
+clearBtn.addEventListener("click", function(){
+    localStorage.clear();   
+    location.reload();
+    return false;
+})
 

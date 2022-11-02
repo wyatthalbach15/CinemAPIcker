@@ -110,6 +110,10 @@ body {
     width: 95%;
 }
 
+#clear-watchlist-button {
+    width: 95%;
+}
+
 #watchlist button {
     background-color: var(--quart);
     width: 100%;
