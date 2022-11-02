@@ -4,7 +4,7 @@
 
 ### For Movie Lovers Who Want More
 
-	![CinemAPIcker Logo](https://user-images.githubusercontent.com/112669621/199144059-21600f4c-2cac-4447-87cb-3ea04c756609.png)
+	![CinemAPIcker Logo](./assets/CinemAPIcker%20logo.png)
 
 ### ScreenShoot
 
@@ -45,7 +45,7 @@ Using our site is as easy as 1,2,3!
 ---
 - Eric Asato - https://github.com/ejasato
 ---
-Zack Levin - https://github.com/TheRealPlanZ
+- Zack Levin - https://github.com/TheRealPlanZ
 ---
 - Jo Abanishe - https://github.com/aabanishe
 ---
