@@ -60,7 +60,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
         // Checks if both boxes are checked
         if ((tvcheckBox === true) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value + "&title_type=feature,tv_series";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?title=" + userInput.value + "&title_type=feature,tv_series";
 
             // Delete later - logs the api url
             console.log(imdbAPI);
@@ -83,7 +83,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only film box is checked
         } else if ((tvcheckBox === false) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value + "&title_type=feature";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?title=" + userInput.value + "&title_type=feature";
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -103,7 +103,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only tv series box is checked 
         } else if ((tvcheckBox === true) && (filmcheckBox === false)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value + "&title_type=tv_series";
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?title=" + userInput.value + "&title_type=tv_series";
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -123,7 +123,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Runs the api without any parameters if no boxes are checked
         } else {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?title=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -147,7 +147,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
         // Checks if both boxes are checked
         if ((tvcheckBox === true) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title_type=feature,tv_series&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?title_type=feature,tv_series&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -167,7 +167,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
 
             // Checks if only film is checked
         } else if ((tvcheckBox === false) && (filmcheckBox === true)) {
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title_type=feature&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?title_type=feature&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -188,7 +188,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
             // Checks if only tv is checked
         } else if ((tvcheckBox === true) && (filmcheckBox === false)) {
 
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?title_type=tv_series&genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?title_type=tv_series&genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -209,7 +209,7 @@ function searchTitles(selectOptions, tvcheckBox, filmcheckBox) {
             // Runs if no boxes are checked
         } else {
 
-            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_njy8hx3n?genres=" + userInput.value;
+            var imdbAPI = "https://imdb-api.com/API/AdvancedSearch/k_z14oaao9?genres=" + userInput.value;
 
             // Fetches data
             fetch(imdbAPI).then(function (response) {
@@ -258,7 +258,7 @@ function dataSorter(data) {
 
 // Gets streaming data
 function getStreamingData(title, year, rating, image, plot, id) {
-    var watchModeApiUrl = "https://api.watchmode.com/v1/title/" + id + "/sources/?apiKey=v5VZtsg5lbt249vIV6vy7EAY9wxqpw1rHXCDFVwS";
+    var watchModeApiUrl = "https://api.watchmode.com/v1/title/" + id + "/sources/?apiKey=CHaTBGbxzalxosZzN41WhPCqsQ10Qz3548I4Bghc";
 
     fetch(watchModeApiUrl).then(function (response) {
         if (response.ok) {
