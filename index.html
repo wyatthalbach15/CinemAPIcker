@@ -14,7 +14,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Oswald:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
+    <!-- JQUERY -->
+        <script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/367388c28a.js" crossorigin="anonymous"></script>
 
@@ -67,6 +71,14 @@
     
                     <button type="submit" id="search-button" class="button">Search</button>
                 </form>
+                <div id="modal" class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content is-light">
+                        <div class="box">
+                            <h1 class="has-text-centered">Please choose a option in the drop down menu!</h1>
+                        </div>
+                    </div>
+                    </div>
             </section>
 
             <section id="watchlist" class="rounded pb-2 mb-4">
@@ -75,7 +87,7 @@
                 </div>
                 <div class="divider mb-2 mx-auto"></div>
                 <ol id="watchlist-items" class="mx-auto">
-                    <li>
+                    <!-- <li>
                         <h4>Title</h4>
                     </li>
                     <li>
@@ -89,8 +101,11 @@
                     </li>
                     <li>
                         <h4>Title</h4>
-                    </li>
+                    </li> -->
                 </ol>
+                <div id="clear-watchlist-button" class="mx-auto">
+                    <button id = "clear-Btn" type="button" class="button my-2">Clear Watchlist</button>
+                </div>
             </section>
         </div>
 
