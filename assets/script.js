@@ -393,6 +393,8 @@ function addToWatchlist() {
     // Looks for savedTitles in local storage
     var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
 
+    // renderWatchlistFirst(titleArray);
+
     // If titleArray is not there, then it is created
     if (titleArray === null) {
         titleArray = [];
@@ -404,8 +406,11 @@ function addToWatchlist() {
         localStorage.setItem("savedTitles", JSON.stringify(titleArray));
     }
     console.log(titleArray);
-    // Calls renderWatchlist fucntion
     renderWatchlistFirst(newTitle);
+    // Calls renderWatchlist fucntion
+
+    renderWatchlistFirst(newTitle);
+
 };
 
 // Renders watchlist per each click
@@ -419,22 +424,26 @@ function renderWatchlistFirst(titleArray){
     h4Maker.innerHTML = titleArray;
 }
 // Renders watchlist when page loads
-function renderWatchlist(titleArrayFirst){
+
+function renderWatchlist(titleArrayFinal){
     console.log("hello");
-    for(i=0;i<titleArrayFirst.length;i++){
+    for(i=0;i<titleArrayFinal.length;i++){
+
     console.log("hello");
     var watchList = document.querySelector("#watchlist-items");
     var listMaker = document.createElement("li");
     var h4Maker = document.createElement("h4");
     watchList.appendChild(listMaker).appendChild(h4Maker);
-    h4Maker.innerHTML = titleArrayFirst[i];
+    h4Maker.innerHTML = titleArrayFinal[i];
+
     }
 }
 
 //when page is deployed automatically 
 $(document).ready(function(){
-    var titleArrayFirst = JSON.parse(localStorage.getItem("savedTitles"));
-    renderWatchlist(titleArrayFirst);
+    var titleArrayFinal = JSON.parse(localStorage.getItem("savedTitles"));
+    renderWatchlist(titleArrayFinal);
+
 })
 
 //clear Button for watchlist

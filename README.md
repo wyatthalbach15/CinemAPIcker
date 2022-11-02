@@ -3,6 +3,11 @@
 
 <img src="https://user-images.githubusercontent.com/112669621/199144059-21600f4c-2cac-4447-87cb-3ea04c756609.png" width="200"/>
 
+
+### Usage
+
+![challenge picture](./assets/images/CinemAPIcker.png)
+
 ### What is CinemAPIcker?
 CinemAPIcker was designed to be a helpful tool for people that enjoy movies/tv and who may want to expand their portfolio.
 With our clean design to make things simple, users will be able to do four things:
