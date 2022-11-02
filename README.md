@@ -45,7 +45,7 @@ Using our site is as easy as 1,2,3!
 ---
 - Eric Asato - https://github.com/ejasato
 ---
-- Zack Levin - https://github.com/TheRealPlanZ!
+Zack Levin - https://github.com/TheRealPlanZ
 ---
 - Jo Abanishe - https://github.com/aabanishe
 ---
