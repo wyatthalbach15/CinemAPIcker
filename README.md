@@ -40,4 +40,3 @@ Jo Abanishe - https://github.com/aabanishe
 ---
 Wyatt Halbach - https://github.com/wyatthalbach15
 ---
-[CinemAPIckerSite](https://user-images.githubusercontent.com/112669621/199386561-3940b2f6-80f6-47e0-81df-f3ea3c61c358.png)
