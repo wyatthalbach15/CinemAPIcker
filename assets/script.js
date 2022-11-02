@@ -417,9 +417,9 @@ function renderWatchlistFirst(titleArray){
     h4Maker.innerHTML = titleArray;
 }
 // Renders watchlist when page loads
-function renderWatchlist(titleArray){
+function renderWatchlist(titleArrayFirst){
     console.log("hello");
-    for(i=0;i<titleArray.length;i++){
+    for(i=0;i<titleArrayFirst.length;i++){
     console.log("hello");
     var watchList = document.querySelector("#watchlist-items");
     var listMaker = document.createElement("li");
@@ -431,8 +431,8 @@ function renderWatchlist(titleArray){
 
 //when page is deployed automatically 
 $(document).ready(function(){
-    var titleArray = JSON.parse(localStorage.getItem("savedTitles"));
-    renderWatchlist(titleArray);
+    var titleArrayFirst = JSON.parse(localStorage.getItem("savedTitles"));
+    renderWatchlist(titleArrayFirst);
 })
 
 //clear Button for watchlist
