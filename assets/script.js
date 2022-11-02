@@ -23,7 +23,9 @@ function submitFunction(e) {
         if (selectOptions != "title" && selectOptions != "genre") {
 
             // Change alert to modal?
-            alert("Please pick either Title or Genre");
+            var modalBox = document.getElementById("modal");
+            modalBox.classList.add("is-active")
+
 
         }
 
