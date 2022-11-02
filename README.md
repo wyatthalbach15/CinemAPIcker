@@ -39,7 +39,6 @@ Grant Gorosave - https://github.com/ggorosave
 Eric Asato - https://github.com/ejasato
 ---
 Zack Levin - https://github.com/TheRealPlanZ!
-
 ---
 Jo Abanishe - https://github.com/aabanishe
 ---
