@@ -4,7 +4,7 @@
 
 ### For Movie Lovers Who Want More
 
-	![CinemAPIcker Logo](./assets/CinemAPIcker%20logo.png)
+![CinemAPIcker Logo](./assets/images/CinemAPIcker_logo.png)
 
 ### ScreenShoot
 
